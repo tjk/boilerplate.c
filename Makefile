@@ -49,7 +49,7 @@ cov: $(BIN_DIR)/$(BINARY)_cov
 .PHONY: test
 test: $(BIN_DIR)/$(BINARY)_test
 	valgrind --leak-check=full --show-reachable=yes $(BIN_DIR)/$(BINARY)_test \
-		2>&1 | ruby $(CURDIR)/scripts/valgrind_pretty_print.rb
+		2>&1 | bash $(CURDIR)/scripts/valgrind_pretty_print.sh
 
 .PHONY: prereqs
 prereqs: submodules deps
